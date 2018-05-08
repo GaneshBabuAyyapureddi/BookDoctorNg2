@@ -1,0 +1,41 @@
+<!-- <app-sidemenu></app-sidemenu> -->
+<div style="margin-top: 1px;" class="background-image">
+
+  <div class="login">
+    <div class="content">
+      <img src="assets/Images/AppLogo.png" class="centerImage">
+      <p class="centerText">
+        <!-- <span style="color: {{combinationTheme}}; font-size: 25px;font-weight: bold;">Book</span>
+        <span style="color:{{appTheme}}; font-size: 25px;font-weight: bold;">Doctor</span> -->
+        <span style="color: red; font-size: 25px;font-weight: bold;">Book</span>
+        <span style="color:#28d; font-size: 25px;font-weight: bold;">Doctor</span>
+      </p>
+    </div>
+    <div class="login-triangle"></div>
+
+    <h2 class="login-header">Log in</h2>
+
+    <form class="login-container" #f="ngForm" novalidate>
+      <p class="divide">
+        <!-- <input type="email" placeholder="Email"> -->
+        <input placeholder = "Email"type="email" name="email" [(ngModel)]="user.email" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email="ngModel">
+        <small [hidden]="email.valid || (email.pristine && !f.submitted)">
+          Email is required and format should be
+          <i>Ganesh@gmail.com</i>.
+        </small>
+      </p>
+      <!-- <pre *ngIf="username.errors">{{ username.errors | json }}</pre> -->
+      <p class="divide">
+        <!-- <input type="password" placeholder="Password"> -->
+        <input placeholder="Password" type="password" name="password" [(ngModel)]="user.password" required #password="ngModel">
+        <small [hidden]="password.valid || (password.pristine && !f.submitted)">
+          Password is required
+        </small>
+      </p>
+      <p class="divide">
+        <input type="submit" value="Log in" (click)="login(user)">
+        <!-- <button type="submit" (click)="login(user)"> Login </button> -->
+      </p>
+    </form>
+  </div>
+</div>

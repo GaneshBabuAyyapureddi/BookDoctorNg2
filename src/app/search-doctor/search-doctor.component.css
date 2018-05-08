@@ -1,0 +1,21 @@
+.navigationBar   {
+    display: GRID;
+    GRID-TEMPLATE-COLUMNS: 45% 50%;
+
+    /* display: GRID;
+
+    GRID-TEMPLATE-COLUMNS: 45% 55%;
+
+    grid-gap: 10px; */
+}
+.navigationBar h1{
+    /* margin: 2px auto; */
+    font-size :30px;
+    grid-column: 2/4;
+    grid-row: 1/2
+    
+}
+.navigationBar cuppa-slidemenu{
+    grid-column: 1/2;
+    grid-row: 1/2;
+}

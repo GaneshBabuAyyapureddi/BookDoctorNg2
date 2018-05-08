@@ -1,0 +1,7 @@
+<nav class="navigationBar" *ngIf="nav.visible" style="background-color:#0a9dc7">
+  <!-- <title>Home</title> -->
+  <h1>SearchDoctor</h1>
+  <cuppa-slidemenu [menulist]="menuItemsArray" [config]="config" (open)="onMenuOpen()" (close)="onMenuClose()" (onItemSelect)="onItemSelect($event)">
+  </cuppa-slidemenu>
+ 
+</nav>

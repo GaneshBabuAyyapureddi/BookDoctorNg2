@@ -1,0 +1,14 @@
+<nav class="navigationBar" *ngIf="nav.visible" style="background-color:#0a9dc7">
+  <!-- <title>Home</title> -->
+  <h1>Home</h1>
+  <!-- <i class="material-icons" style="float: right;"  (click)="appointmentModel()">add</i> -->
+  <button (click)="appointmentModel()">
+
+  </button>
+  <cuppa-slidemenu [menulist]="menuItemsArray" [config]="config" (open)="onMenuOpen()" (close)="onMenuClose()" (onItemSelect)="onItemSelect($event)">
+  </cuppa-slidemenu>
+
+</nav>
+<!-- <app-calendarevent></app-calendarevent> -->
+<!-- <app-appointmentmode></app-appointmentmode> -->
+<app-ui-calender></app-ui-calender>
