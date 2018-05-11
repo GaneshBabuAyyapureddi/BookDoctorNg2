@@ -33,3 +33,16 @@ button{padding: 0.6rem 1rem; font-family: sans-serif; text-transform: uppercase;
   padding:1rem;
   flex-size:1;
 }
+/* .mat-card { width: 400px; } */
+
+/* .example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+#item{
+margin-left: 40px;
+} */

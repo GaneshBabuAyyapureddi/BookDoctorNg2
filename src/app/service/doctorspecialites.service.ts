@@ -1,20 +1,51 @@
 import { Injectable, } from '@angular/core';
-import { HttpClient, HttpResponse  } from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
+import { HttpClient, HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Http, Response } from '@angular/http';
 import { Bookappointment } from '../interfaces/bookappointment';
+import 'rxjs/add/operator/catch';
+import { CalendarEvent } from 'angular-calendar';
 // import { Observable } from 'rxjs/Rx';
 // import 'rxjs/add/operator/map';
 // import 'rxjs/Rx';
 @Injectable()
 export class DoctorspecialitesService {
-  configUrl = 'assets/specialities.json';
+  // configUrl = 'assets/';
+  configUrlSpecialities = 'assets/specialities.json';
+  configUrlDoctorsList = 'assets/BookDoctors.json';
+  configUrlallergies = 'assets/allergies.json';
+  events: CalendarEvent[] = [];
   constructor(private httpclient: HttpClient, private _http: Http) { }
-  getConfig() {
-    debugger;
-    return this._http.get(this.configUrl).map((response: Response) => response.json());
 
+  getSpecialities(): Observable<Bookappointment[]> {
+    // debugger;
+    return this._http.get(this.configUrlSpecialities).map((response: Response) => response.json()).catch(this._errorHandler);
+
+  }
+  getDoctorsList() {
+    return this._http.get(this.configUrlDoctorsList).map((response: Response) => response.json()).catch(this._errorHandler);
+  }
+
+  getAllergies(): Observable<Bookappointment[]> {
+    debugger;
+    return this._http.get(this.configUrlallergies).map((response: Response) => response.json()).catch(this._errorHandler);
+
+  }
+
+  getEventData() {
+
+    return this.events;
+  }
+
+  setEventData(dataEvent) {
+    console.log('dataEvents ', dataEvent);
+  }
+
+  _errorHandler(error: Response) {
+    // debugger;
+    console.error(error);
+    return Observable.throw(error || 'Server Error');
   }
   // public getConfig(): any {
   //   const promise = new Promise((resolve, reject) => {

@@ -12,7 +12,6 @@ import {
   MatCardModule,
   MatCheckboxModule,
   MatChipsModule,
-  MatDatepickerModule,
   MatDialogModule,
   MatDividerModule,
   MatExpansionModule,
@@ -48,7 +47,8 @@ import { FormsModule } from '@angular/forms';
 import { FullCalendarModule } from 'ng-fullcalendar';
 import {AccordionModule} from 'primeng/accordion';
 // import {MenuItem} from 'primeng/api';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { CalendarModule } from 'angular-calendar';
 
 
 
@@ -68,18 +68,28 @@ import { AppointmentmodelComponent } from './appointmentmodel/appointmentmodel.c
 // import { CalendarComponent } from './calendar/calendar.component';
 import { DoctorspecialitesService } from './service/doctorspecialites.service';
 import { UiCalenderComponent } from './ui-calender/ui-calender.component';
-import {CalendarModule} from 'primeng/calendar';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LabresultComponent } from './labresult/labresult.component';
+import { AllergiesComponent } from './allergies/allergies.component';
+// import {CalendarModule} from 'primeng/calendar';
 
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile', component: ProfileComponent,
+  children: [
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    { path: 'dashboard', component: DashboardComponent },
+    { path: 'labresult', component: LabresultComponent }
+  ]
+},
   { path: 'searchDoctor', component: SearchDoctorComponent },
   { path: 'buyMedicine', component: AppComponent },
   { path: 'settings', component: AppComponent },
   { path: 'appComponent', component: AppComponent },
+  // { path: 'dashboard', component: DashboardComponent }
 
 ];
 
@@ -97,6 +107,9 @@ const appRoutes: Routes = [
     SettingsComponent,
     AppointmentmodelComponent,
     UiCalenderComponent,
+    DashboardComponent,
+    LabresultComponent,
+    AllergiesComponent,
   ],
   imports: [
     BrowserModule,
@@ -111,7 +124,7 @@ const appRoutes: Routes = [
     // MaterialModule,
     FlexLayoutModule,
     FullCalendarModule,
-    CalendarModule,
+    CalendarModule.forRoot(),
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NavbarService } from '../service/navbar-service';
 import { Router } from '@angular/router';
+import {SearchDoctorComponent } from '../search-doctor/search-doctor.component';
 
 @Component({
   selector: 'app-profile',

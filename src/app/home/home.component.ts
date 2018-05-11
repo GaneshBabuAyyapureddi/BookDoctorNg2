@@ -74,8 +74,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     // debugger;
     console.log('triggerd');
     this.dialogRef = this.dialog.open(AppointmentmodelComponent, {
-      // width: '400px',
-      // height: '600px',
+      width: 'Auto',
+      height: 'Auto',
       // data: { }
     });
 

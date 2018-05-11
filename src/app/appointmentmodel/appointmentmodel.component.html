@@ -11,19 +11,34 @@
   <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
 </div>
 </div> -->
+
 <mat-card class="example-card">
   <mat-card-header>
     <mat-card-title style="font-size: larger; text-align: center; color : #3f51b5;"> Book Appointment</mat-card-title>
   </mat-card-header>
-  <mat-card-content>
+  <mat-card-content class="example-container" id="item">
     <form class="example-form">
       <table class="example-full-width" cellspacing="0">
         <tr>
           <td>
+
             <mat-form-field class="example-full-width">
-              <mat-select placeholder="Select Speciality" [(ngModel)]="selectedValue" name="specialites">
-                <mat-option *ngFor="let speclts of specialities" [value]="speclts">
-                  {{speclts}}
+              <mat-select placeholder="Select Speciality" [(ngModel)]="selectedValueSpecial" name="specialites">
+                <mat-option>Show All</mat-option>
+                <mat-option *ngFor="let speclts of specialities;let i = index" (click)="onSelect(i)" [attr.data-index]="i" [value]="speclts">
+                  {{speclts}} {{i}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <mat-select placeholder="Select Doctors" [(ngModel)]="selectedValueDoctor " name="Doctors">
+                <mat-option *ngFor="let docotr of doctorsList" [value]="docotr">
+                  {{docotr}}
                 </mat-option>
               </mat-select>
             </mat-form-field>
@@ -31,13 +46,25 @@
         </tr>
         <tr>
           <td>
-            <mat-form-field class="example-full-width">
-                <mat-select placeholder="Select Doctors" [(ngModel)]="selectedValue" name="Doctors">
-                    <mat-option *ngFor="let food of foods" [value]="food.value">
-                      {{food.viewValue}}
-                    </mat-option>
-                  </mat-select>
+            <mat-form-field>
+                <!-- (dateInput)="addEvent('input', $event)" (dateChange)="addEvent('change', $event)" -->
+              <input matInput [matDatepicker]="picker"  placeholder="Select Date" (dateInput)="addEvent($event)" (dateChange)="addEvent($event)">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field>
+                <input matInput  id="time" placeholder="time" type="time" [value]="timeNow" >
+                <!-- <input mdc-datetime-picker="" date="false" time="true" type="text" id="time" short-time="true"
+                placeholder="Time" min-date="minDate" format="hh:mm a" ng-model="time" class=" md-input"
+                readonly="readonly"> -->
+                <!-- <input matInput placeholder="time" type="time" [(ngModel)]="timeNow" [value]="timeNow"> -->
+                <!-- <input type="time" ([ngModel]) ="timeNow" [value]="timeNow"> -->
+                <!-- <p-calendar [(ngModel)]="date11" [defaultDate]="defaultDate" [timeOnly]="true"></p-calendar> -->
+              </mat-form-field>
           </td>
         </tr>
       </table>
@@ -45,7 +72,7 @@
     <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button (click)="login()" color="primary">Add appointment</button>
+    <button mat-raised-button (click)="appointmentData()" color="primary">Add appointment</button>
     <button mat-raised-button (click)="onNoClick()" color="primary">cancel</button>
   </mat-card-actions>
 </mat-card>
