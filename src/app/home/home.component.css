@@ -1,4 +1,3 @@
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 
 .navigationBar   {
@@ -13,9 +12,13 @@
 }
 .navigationBar h1{
     /* margin: 2px auto; */
-    font-size :30px;
+    font-family: inherit;
+    color: inherit;
+    font-weight: 50;
+    font-size :20px;
     grid-column: 2/4;
     grid-row: 1/2
+   
     
 }
 .navigationBar i{

@@ -11,7 +11,7 @@ import { NavbarService } from './service/navbar-service';
   animations: [
     trigger('slideInOut', [
       state('in', style({
-        transform: 'translate3d(0, 0, 0)'
+      transform: 'translate3d(0, 0, 0)'
       })),
       state('out', style({
         transform: 'translate3d(100%, 0, 0)'
@@ -26,7 +26,7 @@ export class AppComponent {
   menuState = 'out';
   // backgroundImage = './assets/images/DoctorBackGroundImg.jpg';
   constructor(private router: Router, private nav: NavbarService) {
-    // this.router.navigate(['login']);
+    this.router.navigate(['login']);
   }
   toggleMenu() {
     // 1-line if statement that toggles the value:

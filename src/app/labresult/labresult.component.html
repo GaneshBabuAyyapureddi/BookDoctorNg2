@@ -1,3 +1,15 @@
-<p>
-  labresult works!
-</p>
+<div class="container-fluid">
+  <div class="row" style="margin-bottom: 100px;">
+    <div class="col-md-3" *ngFor="let labreport of labresultArray">
+      <mat-card class="example-card" style="margin: 30px 0px;border-top: 1px solid red">
+          <img mat-card-image src="{{labreport.src}}" alt="{{labreport.src}}">
+        <mat-card-footer style="background-color: orange; padding-bottom: 1px ; margin-top: 0px;">
+          <br>
+          <p style="text-align: center;font-weight:bold;">Date : {{labreport.date}}</p>
+          <p style="text-align: center;font-weight:bold;">Time : {{labreport.time }}</p>
+        </mat-card-footer>
+      </mat-card>
+
+    </div>
+  </div>
+</div>

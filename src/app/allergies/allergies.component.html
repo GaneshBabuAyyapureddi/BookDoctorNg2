@@ -1,2 +1,36 @@
-<p>hello</p>
-<mat-card>Simple card</mat-card>
+<!-- <div class="container-fluid" style="margin-left: 100px;margin-top: 25px;">
+  <div class="row">
+    <div class="col-md-4" style="width: 30%;">
+        <mat-card >Simple card</mat-card>
+    </div>
+    <div class="col-md-4" style="width: 30%;">
+        <mat-card >Simple card</mat-card>
+    </div>
+    <div class="col-md-4" style="width: 30%;">
+        <mat-card >Simple card</mat-card>
+    </div>
+    
+  </div>
+ 
+</div> -->
+<div class="container ">
+    <div class="row" style="margin-bottom: 100px;">
+        <div class="col-md-4" *ngFor="let allerycard of allergies">
+            <mat-card class="example-card" style="margin: 30px;">
+                <mat-card-header>
+                    <mat-card-title style="font-weight:bold">IMPRESSION</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <p [innerHTML]="allerycard.data">
+                    </p>
+                </mat-card-content>
+                <mat-card-footer style="background-color: orange; padding-bottom: 1px ; margin-top: 55px;">
+                    <br>
+                    <p style="text-align: center;font-weight:bold;">Date : {{allerycard.date}}</p>
+                    <p style="text-align: center;font-weight:bold;">Time : {{allerycard.time }}</p>
+                </mat-card-footer>
+            </mat-card>
+
+        </div>
+    </div>
+</div>

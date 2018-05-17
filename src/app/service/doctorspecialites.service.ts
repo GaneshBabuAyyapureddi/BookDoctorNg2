@@ -15,6 +15,9 @@ export class DoctorspecialitesService {
   configUrlSpecialities = 'assets/specialities.json';
   configUrlDoctorsList = 'assets/BookDoctors.json';
   configUrlallergies = 'assets/allergies.json';
+  configUrlLabresult = 'assets/LabReportPaths.json';
+  configUrlImmunization = 'assets/PatientImmunizations.json';
+  configUrlDoctorsListforsearch = 'assets/doctorsList.json';
   events: CalendarEvent[] = [];
   constructor(private httpclient: HttpClient, private _http: Http) { }
 
@@ -28,11 +31,22 @@ export class DoctorspecialitesService {
   }
 
   getAllergies(): Observable<Bookappointment[]> {
-    debugger;
+    // debugger;
     return this._http.get(this.configUrlallergies).map((response: Response) => response.json()).catch(this._errorHandler);
 
   }
+  getLabresult(): Observable<Bookappointment> {
+    return this._http.get(this.configUrlLabresult).map((response: Response) => response.json()).catch(this._errorHandler);
 
+  }
+  getImmunization(): Observable<Bookappointment> {
+    return this._http.get(this.configUrlImmunization).map((response: Response) => response.json()).catch(this._errorHandler);
+
+  }
+getDcotorsSearch(): Observable<Bookappointment> {
+  return this._http.get(this.configUrlDoctorsListforsearch).map((response: Response) => response.json()).catch(this._errorHandler);
+
+}
   getEventData() {
 
     return this.events;

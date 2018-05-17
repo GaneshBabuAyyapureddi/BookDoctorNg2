@@ -11,7 +11,7 @@ export class AllergiesComponent implements OnInit {
   constructor(private doctorspecialitesService: DoctorspecialitesService) { }
 
   ngOnInit() {
-    debugger;
+    // debugger;
     this.fetchAllergies();
   }
 

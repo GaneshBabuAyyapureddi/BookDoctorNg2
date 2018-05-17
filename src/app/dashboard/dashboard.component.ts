@@ -12,11 +12,11 @@ export class DashboardComponent implements OnInit {
   constructor(private doctorspecialitesService: DoctorspecialitesService) { }
 
   ngOnInit() {
-    debugger;
+    // debugger;
     this.fetchAllergies();
   }
   private fetchAllergies() {
-    debugger;
+    // debugger;
     this.doctorspecialitesService.getAllergies().subscribe(res => {
       console.log('res', JSON.parse(JSON.stringify(res)));
       console.log('allergies', JSON.parse(JSON.stringify(res)));

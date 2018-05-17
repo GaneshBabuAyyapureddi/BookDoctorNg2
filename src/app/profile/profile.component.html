@@ -5,48 +5,56 @@
   </cuppa-slidemenu>
 
 </nav>
+<!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
+  <a class="navbar-brand" href="#">Logo</a>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="javascript:void(0)">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="javascript:void(0)">Link</a>
+    </li>
+  </ul>
+</nav> -->
 
-<router-outlet></router-outlet>
+<router-outlet ></router-outlet>
 
-<nav class="navbar navbar-default " style="margin-top: 30%;
-">
+<nav class="navbar navbar-default " >
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
+
     <div class="navbar-header">
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
+
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li [routerLinkActive]="['active']" id="content">
+        <!-- <li [routerLinkActive]="['active']" id="content">
           <i class="glyphicon glyphicon-home"></i>
-          <a style="margin-top: 0px; margin-bottom: 2px;" routerLink="/profile/dashboard">Dashboard </a>
-        </li>
-        <li [routerLinkActive]="['active']">
+          <a style="margin-top: 0px; margin-bottom: 2px;" routerLink="/profile/Allergies">Dashboard </a>
+        </li> -->
+        <!-- <li [routerLinkActive]="['active']">
           <i class="glyphicon glyphicon-floppy-disk"></i>
           <a style="margin-top: 0px; margin-bottom: 2px;" routerLink="/profile/dashboard">Medical Reports</a>
-        </li>
-        <li [routerLinkActive]="['active']">
+        </li> -->
+        <li [routerLinkActive]="['active']" routerLink="/profile/alergies">
           <i class="glyphicon glyphicon-credit-card"></i>
-          <a style="margin-top: 0px; margin-bottom: 2px;" routerLink="/profile/dashboard">Allergies</a>
+          <a>Allergies</a>
         </li>
 
-        <li [routerLinkActive]="['active']">
+        <li [routerLinkActive]="['active']" routerLink="/profile/labresult">
           <i class="glyphicon glyphicon-bed"></i>
-          <a style="margin-top: 0px; margin-bottom: 2px;" routerLink="/profile/labresult">Lab Reports</a>
+          <a >Lab Reports</a>
         </li>
-        <li [routerLinkActive]="['active']">
+        <li [routerLinkActive]="['active']" routerLink="/profile/immunization">
           <i class="glyphicon glyphicon-blackboard"></i>
-          <a style="margin-top: 0px; margin-bottom: 2px;" routerLink="/profile/labresult">Immunization</a>
+          <a>Immunization</a>
         </li>
-        <!-- <li><i class="glyphicon glyphicon-scale" ></i><a style="margin-top: -13px;"  href="#">Prescription</a></li> -->
-
       </ul>
 
     </div>
-    <!-- /.navbar-collapse -->
+
   </div>
-  <!-- /.container-fluid -->
+
 
 
 </nav>

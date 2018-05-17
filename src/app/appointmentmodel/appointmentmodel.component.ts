@@ -32,8 +32,6 @@ export class AppointmentmodelComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any) {
     // debugger;
     }
-  
-
   // specialities = [
   //   'Immunology',
   //   'Obstetrics and gynecology',

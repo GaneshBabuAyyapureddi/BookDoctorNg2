@@ -46,7 +46,7 @@ const colors: any = {
 })
 export class CalendareventComponent { @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
-view: string = 'month';
+view = 'month';
 events: CalendarEvent[] = [];
 
 viewDate: Date = new Date();

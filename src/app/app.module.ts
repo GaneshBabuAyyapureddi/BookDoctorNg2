@@ -43,12 +43,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { SlideMenuModule } from 'cuppa-ng2-slidemenu/cuppa-ng2-slidemenu';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { CalendarComponent } from 'ap-angular2-fullcalendar/src/calendar/calendar';
-import { FormsModule } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { FullCalendarModule } from 'ng-fullcalendar';
 import {AccordionModule} from 'primeng/accordion';
 // import {MenuItem} from 'primeng/api';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { CalendarModule } from 'angular-calendar';
+import {RatingModule} from 'primeng/rating';
 
 
 
@@ -61,7 +62,7 @@ import { LoginComponent } from './login/login.component';
 import { NavbarService } from './service/navbar-service';
 import { CalendareventComponent } from './calendarevent/calendarevent.component';
 import { ProfileComponent } from './profile/profile.component';
-import { SearchDoctorComponent } from './search-doctor/search-doctor.component';
+import { SearchDoctorComponent, specialitiesfilterComponent } from './search-doctor/search-doctor.component';
 import { BuymedicineComponent } from './buymedicine/buymedicine.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AppointmentmodelComponent } from './appointmentmodel/appointmentmodel.component';
@@ -71,6 +72,7 @@ import { UiCalenderComponent } from './ui-calender/ui-calender.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LabresultComponent } from './labresult/labresult.component';
 import { AllergiesComponent } from './allergies/allergies.component';
+import { ImmunizationComponent } from './immunization/immunization.component';
 // import {CalendarModule} from 'primeng/calendar';
 
 
@@ -80,9 +82,11 @@ const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'profile', component: ProfileComponent,
   children: [
-    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    { path: '', redirectTo: 'alergies', pathMatch: 'full' },
     { path: 'dashboard', component: DashboardComponent },
-    { path: 'labresult', component: LabresultComponent }
+    { path: 'alergies', component: AllergiesComponent },
+    { path: 'labresult', component: LabresultComponent },
+    { path: 'immunization', component: ImmunizationComponent }
   ]
 },
   { path: 'searchDoctor', component: SearchDoctorComponent },
@@ -103,6 +107,7 @@ const appRoutes: Routes = [
     CalendareventComponent,
     ProfileComponent,
     SearchDoctorComponent,
+    specialitiesfilterComponent,
     BuymedicineComponent,
     SettingsComponent,
     AppointmentmodelComponent,
@@ -110,6 +115,7 @@ const appRoutes: Routes = [
     DashboardComponent,
     LabresultComponent,
     AllergiesComponent,
+    ImmunizationComponent,
   ],
   imports: [
     BrowserModule,
@@ -119,6 +125,7 @@ const appRoutes: Routes = [
     SlideMenuModule,
     AngularFontAwesomeModule,
     FormsModule,
+    ReactiveFormsModule,
     AccordionModule,
     ModalModule.forRoot(),
     // MaterialModule,
@@ -129,6 +136,7 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     ),
+    RatingModule,
 
     MatAutocompleteModule,
     MatButtonModule,

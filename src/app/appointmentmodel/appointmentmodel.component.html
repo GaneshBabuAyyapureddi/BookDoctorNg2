@@ -26,8 +26,11 @@
               <mat-select placeholder="Select Speciality" [(ngModel)]="selectedValueSpecial" name="specialites">
                 <mat-option>Show All</mat-option>
                 <mat-option *ngFor="let speclts of specialities;let i = index" (click)="onSelect(i)" [attr.data-index]="i" [value]="speclts">
-                  {{speclts}} {{i}}
+                  {{speclts}}
                 </mat-option>
+                <!-- <mat-option *ngFor="let speclts of specialities;let i = index" (click)="onSelect(i)" [attr.data-index]="i" [value]="speclts">
+                  {{speclts}} {{i}}
+                </mat-option> -->
               </mat-select>
             </mat-form-field>
 

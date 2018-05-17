@@ -19,8 +19,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     { 'title': 'Home', 'link': '#' },
     { 'title': 'My profile', 'link': '#' },
     { 'title': 'Search Doctors', 'link': '#' },
-    { 'title': 'Buy Medicine', 'link': '#' },
-    { 'title': 'Settings', 'link': '#' },
+    // { 'title': 'Buy Medicine', 'link': '#' },
+    // { 'title': 'Settings', 'link': '#' },
     { 'title': 'Logout', 'link': '#' },
     // {
     //   'title': 'searchDoctors', 'link': '#',

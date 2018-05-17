@@ -1,6 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavbarService } from '../service/navbar-service';
+import { DoctorspecialitesService } from '../service/doctorspecialites.service';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 
 @Component({
@@ -9,21 +11,35 @@ import { NavbarService } from '../service/navbar-service';
   styleUrls: ['./search-doctor.component.css']
 })
 export class SearchDoctorComponent implements OnInit, OnDestroy {
+  doctorsListArray: any[];
+  val = 2; animal: string;
+  name: string;
 
-  constructor(public nav: NavbarService, private router: Router) { }
+
+  // tslint:disable-next-line:max-line-length
+  constructor(public nav: NavbarService, private router: Router, private doctorspeccialitesService: DoctorspecialitesService, public dialog: MatDialog) { }
   private menuItemsArray: any[] = [
     { 'title': 'Home', 'link': '#' },
     { 'title': 'My profile', 'link': '#' },
     { 'title': 'Search Doctors', 'link': '#' },
-    { 'title': 'Buy Medicine', 'link': '#' },
-    { 'title': 'Settings', 'link': '#' },
+    // { 'title': 'Buy Medicine', 'link': '#' },
+    // { 'title': 'Settings', 'link': '#' },
     { 'title': 'Logout', 'link': '#' },
   ];
 
   ngOnInit() {
     this.nav.show();
+    this.searchDoctorslist();
   }
-
+  private searchDoctorslist() {
+    // debugger;
+    this.doctorspeccialitesService.getDcotorsSearch().subscribe(res => {
+      console.log('doctorsres', JSON.parse(JSON.stringify(res)));
+      this.doctorsListArray = JSON.parse(JSON.stringify(res));
+    });
+    // console.log('speciality array:' + this.bookappointmentObj);
+    // console.log('selected value:' + this.selectedValue);
+  }
 
   public onMenuClose() {
     console.log('menu closed');
@@ -57,4 +73,41 @@ export class SearchDoctorComponent implements OnInit, OnDestroy {
   config = {
     closeOnCLick: true
   };
+
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(specialitiesfilterComponent, {
+      width: 'auto',
+      height: 'auto',
+      data: { name: this.name, animal: this.animal }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
+
 }
+@Component({
+  // tslint:disable-next-line:component-selector
+  selector: 'app-specialitiesfilter',
+  templateUrl: './specialitiesfilter.component.html',
+  styleUrls: ['./specialitiesfilter.component.css']
+
+})
+
+// tslint:disable-next-line:class-name
+export class specialitiesfilterComponent {
+
+  constructor(
+    public dialogRef: MatDialogRef<specialitiesfilterComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}
+
+

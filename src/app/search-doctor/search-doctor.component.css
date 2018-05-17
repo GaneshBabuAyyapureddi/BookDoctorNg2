@@ -1,6 +1,11 @@
+
+/* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
+
 .navigationBar   {
     display: GRID;
     GRID-TEMPLATE-COLUMNS: 45% 50%;
+    height: 50px;
+
 
     /* display: GRID;
 
@@ -10,12 +15,28 @@
 }
 .navigationBar h1{
     /* margin: 2px auto; */
-    font-size :30px;
+    font-family: inherit;
+    color: inherit;
+    font-weight: 50;
+    font-size :20px;
     grid-column: 2/4;
     grid-row: 1/2
+   
     
 }
 .navigationBar cuppa-slidemenu{
     grid-column: 1/2;
     grid-row: 1/2;
+}
+.fa {
+    font-size: 20px !important;
+}
+
+.navigationBar mat-icon{
+    cursor:pointer;
+    border: none;
+    padding: 10px;
+    font-size :30px;
+    grid-column: 3/4;
+    grid-row: 1/2
 }
