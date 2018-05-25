@@ -1,8 +1,8 @@
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+/* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
 
 
 /* The modal is achieved through CSS */
-.modal-container{
+/* .modal-container{
     position:fixed;
     display: flex;
     justify-content: center;
@@ -28,4 +28,15 @@
   .modal-body{
     padding:1rem;
     flex-size:1;
-  }
+  } */
+  mat-list-item {   
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  /* margin: .5em;
+  padding: .3em 0;
+  height: 1.6em; */
+  /* border-radius: 4px; */
+  border: solid 1px;
+}

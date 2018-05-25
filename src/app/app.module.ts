@@ -172,7 +172,7 @@ const appRoutes: Routes = [
     MatTooltipModule,
 
   ],
-  entryComponents: [AppointmentmodelComponent],
+  entryComponents: [AppointmentmodelComponent, specialitiesfilterComponent],
   providers: [NavbarService, DoctorspecialitesService],
   bootstrap: [AppComponent]
 

@@ -3,7 +3,7 @@
   <h1>SearchDoctor</h1>
   <cuppa-slidemenu [menulist]="menuItemsArray" [config]="config" (open)="onMenuOpen()" (close)="onMenuClose()" (onItemSelect)="onItemSelect($event)">
   </cuppa-slidemenu>
-  <mat-icon class="button" data-toggle="modal" data-target="#specialities">details</mat-icon>
+  <mat-icon class="button" (click)="openDialog()" data-toggle="modal" data-target="#specialities">details</mat-icon>
 
 </nav>
 
@@ -24,7 +24,7 @@
 
         </div>
         <div class="col-md-4" style="color:rebeccapurple; margin-top: 25px">
-      <p-rating [cancel]="false" color='green' [(ngModel)]="doctor.ratings"></p-rating>
+          <p-rating [cancel]="false" color='green' [(ngModel)]="doctor.ratings"></p-rating>
         </div>
       </mat-card>
     </div>
@@ -32,17 +32,19 @@
 
 </div>
 
-
-<ol>
-  <li>
-    <mat-form-field>
-      <input matInput [(ngModel)]="name" placeholder="What's your name?">
-    </mat-form-field>
-  </li>
-  <li>
-    <button mat-raised-button (click)="openDialog()">Pick one</button>
-  </li>
-  <li *ngIf="animal">
-    You chose: <i>{{animal}}</i>
-  </li>
-</ol>
+<!-- <div style="padding: 50px;">
+  <ol>
+    <li>
+      <mat-form-field>
+        <input matInput [(ngModel)]="name" placeholder="What's your name?">
+      </mat-form-field>
+    </li>
+    <li>
+      <button mat-raised-button (click)="openDialog()">Pick one</button>
+    </li>
+    <li *ngIf="animal">
+      You chose:
+      <i>{{animal}}</i>
+    </li>
+  </ol>
+</div> -->

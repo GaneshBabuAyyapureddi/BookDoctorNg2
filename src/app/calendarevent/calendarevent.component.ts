@@ -47,7 +47,7 @@ const colors: any = {
 export class CalendareventComponent { @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
 view = 'month';
-events: CalendarEvent[] = [];
+// events: CalendarEvent[] = [];
 
 viewDate: Date = new Date();
 
@@ -74,7 +74,7 @@ actions: CalendarEventAction[] = [
 
 refresh: Subject<any> = new Subject();
 
-/* events: CalendarEvent[] = [
+ events: CalendarEvent[] = [
   {
     start: subDays(startOfDay(new Date()), 1),
     end: addDays(new Date(), 1),
@@ -106,9 +106,9 @@ refresh: Subject<any> = new Subject();
     },
     draggable: true
   }
-]; */
+];
 
-activeDayIsOpen: boolean = true;
+activeDayIsOpen = true;
 
 constructor() {}
 

@@ -26,7 +26,7 @@ export class AppComponent {
   menuState = 'out';
   // backgroundImage = './assets/images/DoctorBackGroundImg.jpg';
   constructor(private router: Router, private nav: NavbarService) {
-    this.router.navigate(['login']);
+    // this.router.navigate(['login']);
   }
   toggleMenu() {
     // 1-line if statement that toggles the value:

@@ -14,10 +14,9 @@ export class SearchDoctorComponent implements OnInit, OnDestroy {
   doctorsListArray: any[];
   val = 2; animal: string;
   name: string;
-
-
-  // tslint:disable-next-line:max-line-length
-  constructor(public nav: NavbarService, private router: Router, private doctorspeccialitesService: DoctorspecialitesService, public dialog: MatDialog) { }
+  specialities: any = [];
+  constructor(public nav: NavbarService, private router: Router, private doctorspeccialitesService: DoctorspecialitesService, 
+    public dialog: MatDialog) { }
   private menuItemsArray: any[] = [
     { 'title': 'Home', 'link': '#' },
     { 'title': 'My profile', 'link': '#' },
@@ -30,12 +29,22 @@ export class SearchDoctorComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.nav.show();
     this.searchDoctorslist();
+    this.getSpecial();
   }
   private searchDoctorslist() {
     // debugger;
     this.doctorspeccialitesService.getDcotorsSearch().subscribe(res => {
       console.log('doctorsres', JSON.parse(JSON.stringify(res)));
       this.doctorsListArray = JSON.parse(JSON.stringify(res));
+    });
+    // console.log('speciality array:' + this.bookappointmentObj);
+    // console.log('selected value:' + this.selectedValue);
+  }
+  private getSpecial() {
+    // debugger;
+    this.doctorspeccialitesService.getSpecialities().subscribe(res => {
+      console.log('spceialres', JSON.parse(JSON.stringify(res)).specialities);
+      this.specialities = JSON.parse(JSON.stringify(res)).specialities;
     });
     // console.log('speciality array:' + this.bookappointmentObj);
     // console.log('selected value:' + this.selectedValue);
@@ -77,18 +86,19 @@ export class SearchDoctorComponent implements OnInit, OnDestroy {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(specialitiesfilterComponent, {
-      width: 'auto',
-      height: 'auto',
-      data: { name: this.name, animal: this.animal }
+      width: '300px',
+      height: '500px',
+      data: this.specialities
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.animal = result;
+      // this.animal = result;
     });
   }
 
 }
+
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'app-specialitiesfilter',
@@ -103,11 +113,15 @@ export class specialitiesfilterComponent {
   constructor(
     public dialogRef: MatDialogRef<specialitiesfilterComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
-
+  onSelect(data) {
+    debugger;
+    console.log('search select data:', data);
+    // speciality_index = data;
+    // this.getDoctorsList();
+  }
 }
 
 

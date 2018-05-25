@@ -19,6 +19,7 @@ export class DoctorspecialitesService {
   configUrlImmunization = 'assets/PatientImmunizations.json';
   configUrlDoctorsListforsearch = 'assets/doctorsList.json';
   events: CalendarEvent[] = [];
+  public speciality_index;
   constructor(private httpclient: HttpClient, private _http: Http) { }
 
   getSpecialities(): Observable<Bookappointment[]> {
@@ -43,10 +44,10 @@ export class DoctorspecialitesService {
     return this._http.get(this.configUrlImmunization).map((response: Response) => response.json()).catch(this._errorHandler);
 
   }
-getDcotorsSearch(): Observable<Bookappointment> {
-  return this._http.get(this.configUrlDoctorsListforsearch).map((response: Response) => response.json()).catch(this._errorHandler);
+  getDcotorsSearch(): Observable<Bookappointment> {
+    return this._http.get(this.configUrlDoctorsListforsearch).map((response: Response) => response.json()).catch(this._errorHandler);
 
-}
+  }
   getEventData() {
 
     return this.events;
