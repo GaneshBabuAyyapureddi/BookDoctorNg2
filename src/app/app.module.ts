@@ -73,6 +73,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LabresultComponent } from './labresult/labresult.component';
 import { AllergiesComponent } from './allergies/allergies.component';
 import { ImmunizationComponent } from './immunization/immunization.component';
+import { DoctorfilterPipe } from './doctorfilter.pipe';
 // import {CalendarModule} from 'primeng/calendar';
 
 
@@ -116,6 +117,7 @@ const appRoutes: Routes = [
     LabresultComponent,
     AllergiesComponent,
     ImmunizationComponent,
+    DoctorfilterPipe,
   ],
   imports: [
     BrowserModule,

@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { NavbarService } from '../service/navbar-service';
 import { Router } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { AppointmentmodelComponent } from '../appointmentmodel/appointmentmodel.component'
+import { AppointmentmodelComponent } from '../appointmentmodel/appointmentmodel.component';
 
 
 @Component({

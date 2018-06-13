@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NavbarService } from '../service/navbar-service';
 import { DoctorspecialitesService } from '../service/doctorspecialites.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { DoctorfilterPipe } from '../doctorfilter.pipe';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class SearchDoctorComponent implements OnInit, OnDestroy {
   val = 2; animal: string;
   name: string;
   specialities: any = [];
+  speciality: any;
   constructor(public nav: NavbarService, private router: Router, private doctorspeccialitesService: DoctorspecialitesService, 
     public dialog: MatDialog) { }
   private menuItemsArray: any[] = [
@@ -27,6 +29,7 @@ export class SearchDoctorComponent implements OnInit, OnDestroy {
   ];
 
   ngOnInit() {
+    debugger;
     this.nav.show();
     this.searchDoctorslist();
     this.getSpecial();
@@ -92,8 +95,9 @@ export class SearchDoctorComponent implements OnInit, OnDestroy {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      // this.animal = result;
+      debugger;
+      console.log('The dialog was closed', result);
+      this.speciality = result;
     });
   }
 
@@ -117,7 +121,7 @@ export class specialitiesfilterComponent {
     this.dialogRef.close();
   }
   onSelect(data) {
-    debugger;
+    // debugger;
     console.log('search select data:', data);
     // speciality_index = data;
     // this.getDoctorsList();
