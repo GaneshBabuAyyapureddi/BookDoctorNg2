@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     };
   }
   login(userObj: any) {
-    // debugger;
+    debugger;
     if (userObj.email === 'ganesh@gmail.com') {
       this.router.navigate(['home']);
       console.log('triggerd');
