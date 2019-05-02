@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavbarService } from '../service/navbar-service';
 import { User } from '../service/user.interface';
+import { Alert } from 'selenium-webdriver';
+// import { UV_UDP_REUSEADDR } from 'constants';
 
 // export interface User {
 //   username: string;
@@ -32,10 +34,12 @@ export class LoginComponent implements OnInit, OnDestroy {
     };
   }
   login(userObj: any) {
-    debugger;
-    if (userObj.email === 'ganesh@gmail.com') {
+    // debugger;
+    if (userObj.email === 'ganesh@gmail.com' && userObj.password === '123456') {
       this.router.navigate(['home']);
       console.log('triggerd');
+    } else {
+      alert('Invalid Credentials');
     }
   }
 

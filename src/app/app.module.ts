@@ -74,6 +74,7 @@ import { LabresultComponent } from './labresult/labresult.component';
 import { AllergiesComponent } from './allergies/allergies.component';
 import { ImmunizationComponent } from './immunization/immunization.component';
 import { DoctorfilterPipe } from './doctorfilter.pipe';
+import { AppService } from './app.service';
 // import {CalendarModule} from 'primeng/calendar';
 
 
@@ -175,7 +176,7 @@ const appRoutes: Routes = [
 
   ],
   entryComponents: [AppointmentmodelComponent, specialitiesfilterComponent],
-  providers: [NavbarService, DoctorspecialitesService],
+  providers: [NavbarService, DoctorspecialitesService, AppService],
   bootstrap: [AppComponent]
 
 })

@@ -29,7 +29,7 @@ export class SearchDoctorComponent implements OnInit, OnDestroy {
   ];
 
   ngOnInit() {
-    debugger;
+    // debugger;
     this.nav.show();
     this.searchDoctorslist();
     this.getSpecial();
